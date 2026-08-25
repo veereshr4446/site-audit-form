@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Audit Entry</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-headrow">
+      <h1>Site Audit<br>Submission</h1>
+      <div class="hero-logo">
+        <span class="jef-mark">JEF</span>
+        <span class="jef-since"><i></i>SINCE 1994</span>
+      </div>
+    </div>
+    <div class="hero-stat"><span class="dot"></span>Synced live to the master tracker</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="form-card-outer">
+
+    <div class="progress-rail" id="progress">
+      <div class="progress-step"><div class="bar"><i></i></div><div class="label">Site</div></div>
+      <div class="progress-step"><div class="bar"><i></i></div><div class="label">Team</div></div>
+      <div class="progress-step"><div class="bar"><i></i></div><div class="label">Status</div></div>
+      <div class="progress-step"><div class="bar"><i></i></div><div class="label">Location</div></div>
+    </div>
+
+    <form id="auditForm" novalidate>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="icon-badge"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg></div>
+          <div class="card-head-text"><div class="eyebrow-sm">Section 01</div><h2>Site Details</h2></div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Site Code <span class="tag req">Required</span></label>
+          <input type="text" class="mono" id="siteCode" placeholder="e.g. TBP1">
+          <div class="err">Site Code is required.</div>
+        </div>
+
+        <div class="field">
+          <label>Second Site Code <span class="tag opt">Optional</span></label>
+          <input type="text" class="mono" id="siteCode2" placeholder="If applicable">
+        </div>
+
+        <div class="field" data-required="true">
+          <label>City <span class="tag req">Required</span></label>
+          <input type="text" id="city" placeholder="e.g. Bangalore">
+          <div class="err">City is required.</div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Region <span class="tag req">Required</span></label>
+          <select id="region">
+            <option value="">Select region</option>
+            <option>North</option><option>East</option><option>South</option><option>West</option>
+            <option>Northeast</option><option>Southeast</option><option>Southwest</option><option>Northwest</option>
+          </select>
+          <div class="err">Please select a region.</div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Location <span class="tag req">Required</span></label>
+          <input type="text" id="location" placeholder="e.g. Uttarahalli">
+          <div class="err">Location is required.</div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Audit Type <span class="tag req">Required</span></label>
+          <select id="auditType">
+            <option value="">Select one</option>
+            <option>Audit</option>
+            <option>Re-Audit</option>
+          </select>
+          <div class="err">Please select Audit or Re-Audit.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="icon-badge"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="card-head-text"><div class="eyebrow-sm">Section 02</div><h2>Team &amp; Schedule</h2></div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Team <span class="tag req">Required</span></label>
+          <input type="text" id="team" placeholder="e.g. Vasu, Pandri nath">
+          <div class="hint"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>Separate multiple names with commas — they'll be joined with "&amp;" automatically.</div>
+          <div class="err">Team is required.</div>
+        </div>
+
+        <div class="field">
+          <label>SPOC Name <span class="tag opt">Optional</span></label>
+          <input type="text" id="spocName" placeholder="e.g. Ramesh Kumar">
+        </div>
+
+        <div class="field">
+          <label>SPOC Contact <span class="tag opt">Optional</span></label>
+          <div class="phone-row">
+            <select id="spocCode" class="phone-code">
+              <option value="+91" selected>+91</option>
+              <option value="+1">+1</option>
+              <option value="+44">+44</option>
+              <option value="+61">+61</option>
+              <option value="+65">+65</option>
+              <option value="+971">+971</option>
+              <option value="+966">+966</option>
+              <option value="+974">+974</option>
+              <option value="+968">+968</option>
+              <option value="+973">+973</option>
+              <option value="+965">+965</option>
+              <option value="+92">+92</option>
+              <option value="+94">+94</option>
+              <option value="+880">+880</option>
+              <option value="+977">+977</option>
+              <option value="+27">+27</option>
+              <option value="+49">+49</option>
+              <option value="+33">+33</option>
+              <option value="+81">+81</option>
+              <option value="+86">+86</option>
+              <option value="+7">+7</option>
+            </select>
+            <input type="text" id="spocContact" placeholder="10-digit number">
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field" data-required="true">
+            <label>Planned Date <span class="tag req">Required</span></label>
+            <input type="date" id="plannedDate">
+            <div class="err">Required.</div>
+          </div>
+          <div class="field" data-required="true">
+            <label>Execution Date <span class="tag req">Required</span></label>
+            <input type="date" id="executionDate">
+            <div class="err">Required.</div>
+          </div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Audit Engineers <span class="tag req">Required</span></label>
+          <input type="text" id="auditEngineers" placeholder="e.g. Vasu &amp; Pandri nath">
+          <div class="err">Required.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="icon-badge"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17 14v3m0 0v3m0-3h3m-3 0h-3"/></svg></div>
+          <div class="card-head-text"><div class="eyebrow-sm">Section 03</div><h2>Status &amp; Uploads</h2></div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Audit Work Status <span class="tag req">Required</span></label>
+          <select id="auditWorkStatus">
+            <option value="">Select one</option>
+            <option>Completed</option>
+            <option>Not Completed</option>
+            <option>Work in Progress</option>
+          </select>
+          <div class="err">Please select a status.</div>
+        </div>
+
+        <div class="field">
+          <label>Checklist Status <span class="tag opt">Optional</span></label>
+          <select id="checklistStatus">
+            <option value="">Select one</option>
+            <option>Uploaded</option>
+            <option>Not Uploaded</option>
+            <option>Work in Progress</option>
+          </select>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Ondrive Status <span class="tag req">Required</span></label>
+          <select id="ondriveStatus">
+            <option value="">Select one</option>
+            <option>Uploaded</option>
+            <option>Not Uploaded</option>
+            <option>Work in Progress</option>
+          </select>
+          <div class="err">Please select a status.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div class="icon-badge"><svg viewBox="0 0 24 24"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div class="card-head-text"><div class="eyebrow-sm">Section 04</div><h2>Location</h2></div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Geo Location <span class="tag req">Required</span></label>
+          <input type="text" class="mono" id="geoLocation" placeholder="e.g. 12.911769, 77.556517">
+          <div class="err">Required.</div>
+        </div>
+
+        <div class="field" data-required="true">
+          <label>Address <span class="tag req">Required</span></label>
+          <textarea id="address" placeholder="Full site address"></textarea>
+          <div class="err">Address is required.</div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit">
+        <svg viewBox="0 0 24 24"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+        Submit Audit Entry
+      </button>
+      <div class="status-msg" id="statusMsg"></div>
+    </form>
+
+    <div class="footer-credit">
+      <div class="fc-line1">
+        <span class="fc-mark">©</span>
+        <span class="fc-year">2026</span>
+        <span class="fc-made">Made with</span>
+        <span class="fc-heart">❤</span>
+        <span class="fc-made">by</span>
+        <span class="fc-name">Pooja R</span>
+      </div>
+      <div class="fc-rights">All rights reserved.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="stamp-overlay" id="stampOverlay">
+  <div class="stamp-card">
+    <div class="stamp">
+      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    </div>
+    <h3>Entry Recorded</h3>
+    <p>The audit entry has been saved to the master tracker.</p>
+    <div class="code" id="savedCode"></div>
+    <button id="closeStamp">Submit Another</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
