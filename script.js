@@ -1,6 +1,6 @@
 // ⚠️ REQUIRED: paste your deployed Google Apps Script Web App URL here.
 // See SETUP_INSTRUCTIONS.md for how to get this.
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnu3KrbbDWyOCS_6xGrqILTWM-othcmETe2lVc1fRW-DMvMH2mePOAICDEN9sbFTI/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyVq71H3BDiD1dJQqglJhyAywH18Pr1iEBgOsX9PiSfNu1AD2shsVww5cf6AbNTiVpP/exec";
 
 // Column order this form sends — must match the header row in your Google Sheet.
 const FULL_HEADERS = [
