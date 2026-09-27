@@ -1,161 +1,110 @@
-# Site Audit Form · Google Sheets Backend
+# Site Audit Submission Form — JEF Techno, Bangalore
 
-A web-based site audit form that sends data directly to Google Sheets via Apps Script, with Excel export and row management features.
+A mobile-first web form built for field engineers to submit site audit data
+directly from their phones on-site, replacing manual/spreadsheet-based data
+entry. Data flows straight into a shared Google Sheet, styled and structured
+to match the company's existing audit tracker format.
 
----
-
-## Overview
-
-This project replaces manual Excel reporting with a structured web form. Engineering teams can submit site audit data, which is automatically appended to a Google Sheet. The sheet includes custom menus for exporting data to Excel and managing rows.
-
----
-
-## Features
-
-| Feature | Description |
-|---------|-------------|
-| Multi-step form | 4 sections with progress tracking (Site → Team → Status → Location) |
-| Form validation | Required fields checked before submission |
-| Google Sheets sync | Data appended directly to your sheet via Apps Script |
-| Auto-formatting | Yellow header row, light blue data rows, checkboxes in column A |
-| Excel export | Download all rows or only selected rows as `.xlsx` |
-| Row management | Delete selected rows via checkbox |
-| Sheet menu | Custom "Site Audit Tools" menu in Google Sheets |
+Built independently by **Viresh R**, 3rd Semester, Rao Bahaddur
+Mahabaleshwarappa Engineering College, Ballari — currently in active use by
+the site audit team at JEF Techno, Bangalore.
 
 ---
 
-## Tech Stack
+## What it does
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | HTML, CSS, JavaScript |
-| Backend | Google Apps Script |
-| Database | Google Sheets |
-| APIs | Google Sheets API, Fetch API |
+- Field engineers fill a structured 4-section form (Site Details, Team &
+  Schedule, Status & Uploads, Location) on their phone at the audit site.
+- Submissions are validated client-side (required fields, formats) before
+  being sent.
+- Each submission is appended as a new row to a private Google Sheet in
+  real time — no manual re-typing from paper/WhatsApp notes into Excel.
+- The sheet includes one-click tools (custom menu) to export all-or-selected
+  entries as `.xlsx`, delete outdated rows, and keep formatting consistent
+  automatically.
+- Only the admin (sheet owner) can view or export the collected data —
+  the public form never exposes other submissions.
 
----
+## Why it was built
 
-## Form Fields
+Previously, site audit data collection relied on **manually filled Excel
+spreadsheets** — engineers would record details after the fact and type
+them into a shared sheet. Per team feedback collected after one week of
+using this tool, this old process took an estimated **2–3 hours per site**
+and both surveyed team members reported having lost or forgotten details
+under that method. This tool moves data collection to the point of work
+(on-site, on the engineer's own phone) and removes the manual
+transcription step entirely.
 
-| Section | Fields |
-|---------|--------|
-| Site Details | Site Code, Second Site Code, City, Region, Location, Audit Type |
-| Team & Schedule | Team (comma-separated), SPOC Name, SPOC Contact, Planned Date, Execution Date, Audit Engineers |
-| Status & Uploads | Audit Work Status, Checklist Status, Ondrive Status |
-| Location | Geo Location, Address |
+## Tech stack
 
----
+- **Frontend:** HTML/CSS/JavaScript (split into index.html, styles.css,
+  script.js), mobile-first responsive design, no build step or framework
+  dependency — deployable as a static site.
+- **Backend:** Google Apps Script (serverless), acting as a lightweight API
+  that writes directly to Google Sheets.
+- **Storage/Output:** Google Sheets — doubles as the live database and the
+  admin-facing dashboard; exportable to Excel (`.xlsx`) on demand.
+- **Hosting:** Deployed via [Vercel / GitHub Pages] as a public static site.
 
-## Setup Instructions
+## Notable engineering decisions
 
-### 1. Create a Google Sheet
-
-Create a new Google Sheet in your Google Drive.
-
-### 2. Open Apps Script
-
-Go to **Extensions → Apps Script**.
-
-### 3. Paste the Script
-
-Delete the default code and paste the `Code.gs` script.
-
-### 4. Deploy as Web App
-
-- Click **Deploy → New Deployment**
-- Select **Web App**
-- Set **Execute as:** "Me"
-- Set **Who has access:** "Anyone"
-- Click **Deploy**
-- Copy the Web App URL
-
-### 5. Update the HTML Form
-
-Open `index.html` and replace `SCRIPT_URL` with your Web App URL:
-
-```javascript
-const SCRIPT_URL = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec";
-```
-
-### 6. Deploy the HTML Form
-
-Upload `index.html` to GitHub Pages, Netlify, or any static hosting.
+- Chose Google Sheets + Apps Script over a traditional database to keep
+  the system free, zero-maintenance, and usable by a non-technical admin
+  (no server to manage, no hosting cost, familiar Excel-like interface for
+  the person reviewing data).
+- Designed the public form to expose **zero** administrative surface —
+  submitters can only ever send data in, never read others' entries,
+  addressing a real data-privacy requirement from the company.
+- Built a custom in-sheet menu (Apps Script UI) so the non-technical admin
+  can export/clean data without needing to know scripting or leave the
+  Sheets interface.
 
 ---
 
-## File Structure
+## Real-world usage & impact
 
-```
-site_audit_form/
-├── index.html          # Main form (HTML + CSS + JS)
-├── Code.gs             # Google Apps Script backend
-└── README.md           # Documentation
-```
+*(Collected via a short feedback survey of the JEF Techno team after one
+week of live use — 27/09/2026. Numbers below are team-reported estimates,
+not lab-measured, and are presented as such.)*
 
----
+| Metric | Value | How it was measured |
+|---|---|---|
+| Number of engineers actively using the form | 10 | Reported by the team |
+| Total audit entries submitted (Week 1) | 70 audits | Google Sheet row count |
+| Old process | Manual Excel/spreadsheet entry | Team feedback (2 respondents) |
+| Errors / getting stuck — old Excel-based method | Occasional ("sometimes, weekly") | Team feedback |
+| Estimated time per site — old process | ~2–3 hours | Team feedback (2 respondents: 2 hrs, 3 hrs) |
+| Lost/forgotten details under old method | Yes, reported by both surveyed respondents | Team feedback |
+| Estimated time per site — new form | ~2 minutes | Team feedback |
+| Easier to fill on phone vs. old method | Yes, described as "convenient" | Team feedback |
+| Overall time-impact verdict | "Saves time" | Team feedback |
+| One-sentence team summary | "Best." | Direct quote, survey respondent |
 
-## Google Apps Script Functions
-
-| Function | Purpose |
-|----------|---------|
-| `doPost(e)` | Receives form data, appends to sheet |
-| `doGet(e)` | Health check endpoint |
-| `downloadAllAsExcel()` | Exports entire sheet as `.xlsx` |
-| `downloadSelectedAsExcel()` | Exports checked rows only |
-| `deleteSelectedRows()` | Removes checked rows |
-| `onOpen()` | Adds custom menu to Google Sheets |
-| `autoResizeAllColumns()` | Resizes all columns to fit content |
-| `reapplyRowColors()` | Reapplies header and row styling |
-
----
-
-## Google Sheets Menu
-
-Once deployed, open your Google Sheet to see the **Site Audit Tools** menu:
-
-```
-Site Audit Tools
-├── Download All as Excel
-├── Download Selected Rows as Excel
-├── ──────────────────────
-├── Delete Selected Rows
-├── Clear Temporary Export Sheets
-├── ──────────────────────
-├── Auto-resize All Columns
-└── Reapply Row Colors
-```
+**Note on the time figures:** the ~2-3 hours reported for the old process
+likely reflects the full round-trip of the previous workflow (recording
+notes on-site, then transcribing into Excel later — not just typing speed),
+compared to ~2 minutes filling the form directly on-site. These are
+self-reported estimates from a small sample (2 respondents for the timing
+question), not independently timed — worth stating plainly if asked in an
+interview, e.g.: *"Two team members estimated the old process took 2-3
+hours per site including later transcription, versus about 2 minutes
+filling the form directly on-site — a team-reported estimate, not a
+controlled measurement."*
 
 ---
 
-## Security Notes
+## Project links
 
-| Concern | Status |
-|---------|--------|
-| Anyone can POST data | Yes — by design |
-| Anyone can delete rows | No — only users with sheet edit access |
-| Anyone can read data | No — only users with sheet access |
-| Script URL is public | Yes — required for web app functionality |
+- **Live form:** [jef-site-audit-form-l7we7mrov-veereshr4446s-projects.vercel.app](https://jef-site-audit-form-l7we7mrov-veereshr4446s-projects.vercel.app/)
+- **Data backend:** Google Sheets + Apps Script (private)
 
----
+## About the author
 
-## How to Frame This on Your Resume
+**Viresh R** — 2nd Semester, Computer Science Engineering, Rao Bahaddur Mahabaleshwarappa
+Engineering College, Ballari. Self-taught in full-stack web development;
+this project was built end-to-end independently, from requirements
+gathering with the JEF Techno team through deployment and ongoing support.
 
-- Built a site audit form used by JEF Techno's engineering team, replacing manual Excel reporting
-- Integrated with Google Sheets via Apps Script, enabling real-time data sync
-- Implemented client-side validation and progress tracking for error-free entry
-- Reduced audit entry time from 15+ minutes to under 3 minutes per submission
-- Added custom sheet menus for Excel export and row management
-
----
-
-## Author
-
-**Viresh R**
 - GitHub: [@veereshr4446](https://github.com/veereshr4446)
-- LinkedIn: [Viresh Ranjanagi](https://linkedin.com/in/veeresh-r-4446)
-
----
-
-## License
-
-MIT
+- LinkedIn: [Viresh R](https://linkedin.com/in/veeresh-r-4446)
