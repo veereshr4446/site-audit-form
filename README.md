@@ -5,7 +5,7 @@ directly from their phones on-site, replacing manual/spreadsheet-based data
 entry. Data flows straight into a shared Google Sheet, styled and structured
 to match the company's existing audit tracker format.
 
-Built independently by **Viresh R**, 3rd Semester, Rao Bahaddur
+Built independently by **Viresh R**, 2nd Semester, Rao Bahaddur
 Mahabaleshwarappa Engineering College, Ballari — currently in active use by
 the site audit team at JEF Techno, Bangalore.
 
