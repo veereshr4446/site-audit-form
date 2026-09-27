@@ -72,9 +72,9 @@ not lab-measured, and are presented as such.)*
 |---|---|---|
 | Number of engineers actively using the form | 10 | Reported by the team |
 | Total audit entries submitted (Week 1) | 70 audits | Google Sheet row count |
-| Old process | Manual Excel/spreadsheet entry | Team feedback (2 respondents) |
+| Old process | Manual Excel/spreadsheet entry | Team feedback (many respondents) |
 | Errors / getting stuck — old Excel-based method | Occasional ("sometimes, weekly") | Team feedback |
-| Estimated time per site — old process | ~2–3 hours | Team feedback (2 respondents: 2 hrs, 3 hrs) |
+| Estimated time per site — old process | ~2–3 hours | Team feedback (2 hrs, 3 hrs) |
 | Lost/forgotten details under old method | Yes, reported by both surveyed respondents | Team feedback |
 | Estimated time per site — new form | ~2 minutes | Team feedback |
 | Easier to fill on phone vs. old method | Yes, described as "convenient" | Team feedback |
@@ -85,7 +85,7 @@ not lab-measured, and are presented as such.)*
 likely reflects the full round-trip of the previous workflow (recording
 notes on-site, then transcribing into Excel later — not just typing speed),
 compared to ~2 minutes filling the form directly on-site. These are
-self-reported estimates from a small sample (2 respondents for the timing
+self-reported estimates from a small sample (many respondents for the timing
 question), not independently timed — worth stating plainly if asked in an
 interview, e.g.: *"Two team members estimated the old process took 2-3
 hours per site including later transcription, versus about 2 minutes
